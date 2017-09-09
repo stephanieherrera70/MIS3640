@@ -32,3 +32,8 @@ print(24.95 * .40 + 3 + .75 *59)
 print((8 * 1 + 15 / 60) + ((7 * 3) + 3 * (12 / 60)) + (8 + 15 / 60))
 #percentage of the increase 
 print(((89-82)/82) * 100 + 'xx.x%') 
+
+#Session 3
+import time
+date= time.time()
+print(time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(date)))
