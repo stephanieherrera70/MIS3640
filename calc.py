@@ -37,3 +37,14 @@ print(((89-82)/82) * 100 + 'xx.x%')
 import time
 date= time.time()
 print(time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(date)))
+
+#in class overview 
+import time
+print(time.time())
+current = time.time()
+second = current % 60
+minutes = (current// 60) % 60
+hours = (current // 60) // 60 % 24
+days = (current// 60) // 60 % 40 
+print('Current time: %d days, %d hours, %d minutes, %d seconds from Epoch.' % (days, hours, minutes, seconds))
+
