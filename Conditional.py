@@ -9,3 +9,6 @@ elif age >=6:
 else: #CAN'T FORGET COLON!!!
     print('Kid')
 
+
+
+
