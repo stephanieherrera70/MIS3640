@@ -78,3 +78,44 @@ def capitalize_all(t):
 
 print(only_upper('Babson College'))
 
+t = ['a', 'b', 'c', 'd']
+x = t.pop(1)
+# pop modifies the list and returns 
+# the element that was removed. 
+print(x)
+print(t)
+
+t = ['a', 'b', 'c', 'd', 'e']
+del t[1:3]
+print(t)
+
+team = 'Patriots'
+t = list(team)
+print(t)
+
+team = 'New England Patriots'
+t = team.split()
+print(t)
+
+s = 'spam-spam-spam'
+delimiter = '-'
+t = s.split(delimiter)
+print(t)
+
+t = ['New', 'England', 'Patriots']
+team = ' '.join(t)
+print(team)
+
+a = 'banana'
+b = 'banana'
+print(a is b)
+
+a = [1, 2, 3]
+b = a
+print(b is a)
+
+b[0] = 'something else'
+print(a)
+
+
+
