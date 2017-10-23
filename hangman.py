@@ -167,12 +167,52 @@ def hangman(secretWord):
       user has not yet guessed.
     Follows the other limitations detailed in the problem write-up.
     '''
-     # FILL IN YOUR CODE HERE...
+    intro = str(len(secretWord)) #This allows the computer to know how long the secretWord is. 
+    lettersGuessed = [] #This shows all the letters that have been guessed and will be places in here. 
+    guess = str #turns the guess into a string and makes sure it is a string. 
+    mistakesMade = 8 #This is how many attempts the player had. Every time they guess, the number will decrease by 1. 
+    wordGuessed = False #
+    
+    print('Welcome to the game, Hangman!')
+    print(('I am thinking of a word that is ') + intro + (' letters long.'))
+    print('------------')
+    #These are the instructions for the game. 
+    while mistakesMade > 0 and mistakesMade <= 8 and wordGuessed is False: #Making sure the guesses are within the limit of guessing. You can only get up to 8 guesses for this one.
+        if secretWord == getGuessedWord(secretWord, lettersGuessed):#If the secretWord is equal to the actual word through this function 
+            wordGuessed = True #then the wordGuessed is True and you are done. 
+            break
+        print(('You have ') + str(mistakesMade) + (' guesses left.'))
+        print(('Available letters: ') + getAvailableLetters(lettersGuessed))
+        #This tells the players how many guesses they have by inserting the number of how many guesses are left.
+        guess = input(('Please guess a letter: ').lower()) #this allows the user to guess a letter and make it into a lowercase just incase. 
+        if guess in secretWord: #If the guess is in the secretWord it would move to the next two if statements. 
+            if guess in lettersGuessed: #If letter has already been guessed
+                print(("Oops! You've already guessed that letter: ") + getGuessedWord(secretWord, lettersGuessed)) 
+                print(('------------'))
+            else:
+                lettersGuessed.append(guess) #You would add the guessed letter into the guess []. 
+                print(('Good guess: ') + getGuessedWord(secretWord, lettersGuessed))
+                print(('------------'))
+        else: #If the guess is not in the secretWord it would move to the next if else statements. 
+            if guess in lettersGuessed: #If letter has already been guessed
+                print(("Oops! You've already guessed that letter: ") + getGuessedWord(secretWord, lettersGuessed))
+                print(('------------'))
+            else: #If the guess is not in the secret word, the user will have one less guess. 
+                lettersGuessed.append(guess)
+                mistakesMade -= 1
+                print(('Oops! That letter is not in my word: ') + getGuessedWord(secretWord, lettersGuessed))
+                print(('------------'))
+
+    if wordGuessed == True: #If the wordGuessed is equal to the secretWord, the game will tell the user that they won. 
+        return 'Congratulations, you won!'
+    elif mistakesMade == 0: #If user has guessed incorrectly 8 times, and there are no more guesses left, the game will tell you that they lost and give you the secretWord. 
+        print(('Sorry, you ran out of guesses. The word was ') + secretWord)
+
 
 
 # # When you've completed your hangman function, uncomment these two lines
 # # and run this file to test! (hint: you might want to pick your own
 # # secretWord while you're testing)
 
-# # secretWord = chooseWord(wordlist).lower()
-# # hangman(secretWord)
+secretWord = chooseWord(wordlist).lower() #This will generate a secret word. 
+print(hangman(secretWord)) #This will call upon the hangman function, randomized secretWrod, and start the game. 
