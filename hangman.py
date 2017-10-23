@@ -84,24 +84,23 @@ def getGuessedWord(secretWord, lettersGuessed):
     returns: string, comprised of letters and underscores that represents
       what letters in secretWord have been guessed so far.
     '''
-    count = 0 # Count method takes a single arguent, element whose count is to be found. Starting at 0 letters. 
-    blank = ['_ '] * len(secretWord)
-
-    for i, c in enumerate(secretWord):
-        if c in lettersGuessed:
-            count += 1
-            blank.insert(count-1,c)
-            blank.pop(count)
-            if count == len(secretWord):
-                return ''.join(str(e) for e in blank)
-        else:
-            count += 1
-            blank.insert(count-1,'_')
-            blank.pop(count)
-            if count == len(secretWord):
-                return ''.join(str(e) for e in blank)
     
+    count = 0 #Count method takes a single agument, element whose count is to be found. Starting a 0 letters, and each time it is a correct letter, the count will increase.
+    blank = ['_ '] * len(secretWord) #An underscore will be multiplied by how my letters in the secretWord. 
 
+    for i, c in enumerate(secretWord):#Creaing a loop, "i" is the count and "c" is the value or letter in the secretWord.
+        if c in lettersGuessed:#If letter is in lettersGuesssed 
+            count += 1 #The count will increase by 1 since the letter matches a letter in secretWorld. 
+            blank.insert(count-1,c)#You are inserting the letter on the line of words. The the letter will be placed in the index number. 
+            blank.pop(count) #pop() removees and returns the last item in the lsit. This will remove the underscore.
+            if count == len(secretWord):#Once all of the letters match the number of letter in the secretworkd
+                return ''.join(str(t) for t in blank) #then return join() merges the string representations of elements in sequence "e" into a string, with seperator string. 
+        else: #if the letter is not in secretWrod
+            count += 1 #You add the guess as a count. 
+            blank.insert(count-1,'_') #A blank will be placed in hold of the person not guessing the letter. The count-1, is for the index in the word. If the count is 4, then the placement of the letter is 3: 0,1,2,3. 
+            blank.pop(count)#The pop removes the underscore that you need to get rid of because it created an extra index.
+            if count == len(secretWord):#Once the guessed letters match up to the amount of letter for secretWord you are done with the loop.
+                return ''.join(str(t) for t in blank) #this brings it all together. 
 
 # # When you've completed your function getGuessedWord, uncomment these three lines
 # # and run this file to test!
@@ -109,6 +108,9 @@ def getGuessedWord(secretWord, lettersGuessed):
 secretWord = 'apple'
 lettersGuessed = ['e', 'i', 'k', 'p', 'r', 's']
 print(getGuessedWord(secretWord, lettersGuessed))
+#So, you start off with "a", it jumps to the else statement. It counts 1, and inserts a "_" for the first letter of the 
+#list of "_" because it is index 0. Then "p", count becomes 2 and will go with the first part of the function. It will add a 
+#"p" in the 1st index, and pop out a blank because a letter was inserted. You do this for every letter. 
 
 # # Expected output:
 # # '_ pp_ e'
@@ -120,17 +122,8 @@ def getAvailableLetters(lettersGuessed):
     returns: string, comprised of letters that represents what letters have not
       yet been guessed.
     '''
-    alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-    alphabet2 = alphabet[:]
+     # FILL IN YOUR CODE HERE...
 
-    def removeDupsBetter(L1, L2):
-        L1Start = L1[:]
-        for e in L1:
-            if e in L1Start:
-                L2.remove(e)
-        return ''.join(str(e) for e in L2)
-
-    return removeDupsBetter(lettersGuessed, alphabet2)
     # Hint: You might consider using string.ascii_lowercase, which
     # is a string comprised of all lowercase letters.
 
@@ -139,28 +132,28 @@ def getAvailableLetters(lettersGuessed):
 # # When you've completed your function getAvailableLetters, uncomment these two lines
 # # and run this file to test!
 
-lettersGuessed = ['e', 'i', 'k', 'p', 'r', 's']
-print(getAvailableLetters(lettersGuessed))
+# lettersGuessed = ['e', 'i', 'k', 'p', 'r', 's']
+# print(getAvailableLetters(lettersGuessed))
 
 # # Expected output:
 # # abcdfghjlmnoqtuvwxyz
 
 
-# def hangman(secretWord):
-#     '''
-#     secretWord: string, the secret word to guess.
-#     Starts up an interactive game of Hangman.
-#     * At the start of the game, let the user know how many 
-#       letters the secretWord contains.
-#     * Ask the user to supply one guess (i.e. letter) per round.
-#     * The user should receive feedback immediately after each guess 
-#       about whether their guess appears in the computers word.
-#     * After each round, you should also display to the user the 
-#       partially guessed word so far, as well as letters that the 
-#       user has not yet guessed.
-#     Follows the other limitations detailed in the problem write-up.
-#     '''
-#     # FILL IN YOUR CODE HERE...
+def hangman(secretWord):
+    '''
+    secretWord: string, the secret word to guess.
+    Starts up an interactive game of Hangman.
+    * At the start of the game, let the user know how many 
+      letters the secretWord contains.
+    * Ask the user to supply one guess (i.e. letter) per round.
+    * The user should receive feedback immediately after each guess 
+      about whether their guess appears in the computers word.
+    * After each round, you should also display to the user the 
+      partially guessed word so far, as well as letters that the 
+      user has not yet guessed.
+    Follows the other limitations detailed in the problem write-up.
+    '''
+     # FILL IN YOUR CODE HERE...
 
 
 # # When you've completed your hangman function, uncomment these two lines
