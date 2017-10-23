@@ -122,9 +122,23 @@ def getAvailableLetters(lettersGuessed):
     returns: string, comprised of letters that represents what letters have not
       yet been guessed.
     '''
-     # FILL IN YOUR CODE HERE...
+     
+    alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']# Every letter in the alphebet. 
+    alphabet2 = alphabet[:] #Copy of the alphetbet. There will be letters being removed on this list to show what letters have not been used. Constantly referring back to the first alphebet. 
 
-    # Hint: You might consider using string.ascii_lowercase, which
+    def removeduplicate(L1, L2): #This is a function that has 2 arguments. 
+        L1Start = L1[:]# Have to make sure to make a copy of the first list, to be able to modify the second.
+        for e in L1:#For an element, or letter in the first argument.
+            if e in L1Start:#If the leter in LIStart is there, which also implies it is in the first argument
+                L2.remove(e) #then the letter is removed from the second argyment.
+        return ''.join(str(e) for e in L2)
+
+    return removeduplicate(lettersGuessed, alphabet2) #This will sshow what letters are available. 
+
+    #Alphabet2 becomes L2. So the letter starts off from the alphabet and as each letter is guessed, it is removed from
+    #the list and then all the letters left are displayed. 
+
+    #  Hint: You might consider using string.ascii_lowercase, which
     # is a string comprised of all lowercase letters.
 
 
