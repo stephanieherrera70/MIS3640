@@ -15,13 +15,15 @@ def speak_Chinese(number):
     elif number <= 99:
         x = number
         y = 10
-        tens = (x-x%y)/y
-        digits = x%y
+        tens = (x - (x % y)) / y
+        digits = x % y
         if digits == 0:
             return trans[str(tens)] + " " + trans[str(y)]
-        if tens == 1:
+        elif tens == 1:
             return trans[str(y)] + " " + trans[str(digits)]
-        return trans[str(tens)] + " " + trans[str(y)] + " " + trans[str(digits)]
+        else:
+            return trans[str(tens)] + " " + trans[str(y)] + " " + trans[str(digits)]
+
     elif number <= 999:
         x = number
         y = 100
@@ -37,26 +39,26 @@ def speak_Chinese(number):
             return trans[str(hundreds)] + " " + trans[str(y)]
         elif tens == 0:
             return trans[str(hundreds)] + " " + trans[str(y)] + " " +trans[str(0)] + " " + trans[str(digits)]
-        
-        return trans[str(hundreds)] + " " + trans[str(y)] + " " + trans[str(tens)] + " " + trans[str(z)] + " " + trans[str(digits)]
+        else:
+            return trans[str(hundreds)] + " " + trans[str(y)] + " " + trans[str(tens)] + " " + trans[str(z)] + " " + trans[str(digits)]
     else:
         return "does not exist"
 
 
 # For testing
 def main():
-    print(speak_Chinese(36))
+    print(speak_Chinese(306))
     print('In Chinese: 36 = san shi liu')
-    print(speak_Chinese(20))
-    print('In Chinese: 20 = er shi')
-    print(speak_Chinese(16))
-    print('In Chinese: 16 = shi liu')
-    print(speak_Chinese(200))
-    print('In Chinese: 200 = er bai')
-    print(speak_Chinese(109))
-    print('In Chinese: 109 = yi bai ling jiu')
-    print(speak_Chinese(999))
-    print('In Chinese: 999 = jiu bai jiu shi jiu')
+    # print(speak_Chinese(20))
+    # print('In Chinese: 20 = er shi')
+    # print(speak_Chinese(16))
+    # print('In Chinese: 16 = shi liu')
+    # print(speak_Chinese(200))
+    # print('In Chinese: 200 = er bai')
+    # print(speak_Chinese(109))
+    # print('In Chinese: 109 = yi bai ling jiu')
+    # print(speak_Chinese(999))
+    # print('In Chinese: 999 = jiu bai jiu shi jiu')
 
 if __name__ == '__main__':
     main()
