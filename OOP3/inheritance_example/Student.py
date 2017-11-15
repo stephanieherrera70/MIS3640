@@ -47,10 +47,13 @@ def main():
 
     print(s4.speak('I am not sure why I am here.'))
 
+    for student in studentList:
+        print(student.speak('Today is cold.'))
+
     # print(isStudent(s1))
 
-    # p1 = Person('Taylor Swift')
-    # print(isStudent(p1))
+    p1 = Person('Taylor Swift')
+    print(isStudent(p1))
 
 if __name__ == '__main__':
     main()
